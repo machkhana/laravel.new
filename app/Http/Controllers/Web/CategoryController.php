@@ -4,18 +4,18 @@ namespace App\Http\Controllers\Web;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Web\Category;
 
-class Category extends Controller
+class CategoryController extends Controller
 {
-    public $category;
+    protected $category;
 
     public function __construct()
     {
         $this->category = new Category();
     }
-
-    public function category(){
-
-        return view('partials.categoryes')->with('categoryes',$this->category);
+    public function index(){
+        $categoryes = $this->category->all();
+        return view('web.category.index')->with('categoryes',$categoryes);
     }
 }

@@ -15,9 +15,7 @@
 
 //Route::get();
 Route::get('/','Web\HomeController@index')->name('home');
-Route::get('/about','Web\AboutController@index')->name('about');
-Route::get('/contact','Web\ContactController@index')->name('contact');
-Route::get('product/{id}','Web\ProductController@show');
+Route::get('product','Web\ProductController@index')->name('product');
 
 
 

@@ -10,10 +10,15 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+//Use App\Web\Category;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+//Route::get();
+Route::get('/','Web\HomeController@index')->name('home');
+Route::get('/about','Web\AboutController@index')->name('about');
+Route::get('/contact','Web\ContactController@index')->name('contact');
+
+
 
 Auth::routes();
 

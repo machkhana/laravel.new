@@ -70,7 +70,7 @@
                 </div>
             </div>
         </nav>--}}
-        @include('web.category.index')
+        @include('partials._nav')
         <main class="py-4">
             @yield('content')
         </main>

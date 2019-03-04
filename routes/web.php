@@ -17,9 +17,9 @@
 Route::get('/','Web\HomeController@index')->name('home');
 Route::get('/about','Web\AboutController@index')->name('about');
 Route::get('/contact','Web\ContactController@index')->name('contact');
+Route::get('product/{id}','Web\ProductController@show');
 
 
 
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');

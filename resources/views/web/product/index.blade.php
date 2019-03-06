@@ -1,4 +1,9 @@
-@extends('layouts.app')
+@extends('web.layouts.app')
 @section('content')
-    mtavari
+    <div class="nav">
+        @foreach($categories as $categori)
+            <a href="{{route('show.product',[$categori->id])}}"><p>{{$categori->name_ge}}</p></a>
+        @endforeach
+    </div>
+    produqcia
 @endsection

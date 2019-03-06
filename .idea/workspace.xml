@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
+    <list default="true" id="7a4f5866-c344-4ec2-932e-db6fc89c8dc1" name="Default" comment="" />
+=======
     <list default="true" id="7a4f5866-c344-4ec2-932e-db6fc89c8dc1" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Web/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Web/CategoryController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
+>>>>>>> 039ce6a13540553721f708fe3a3cb87c0ea154fe
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -29,11 +33,21 @@
       <file leaf-file-name="CategoryController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Web/CategoryController.php">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="162">
               <caret line="9" column="28" lean-forward="true" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
+=======
+<<<<<<< HEAD
+            <state relative-caret-position="100">
+              <caret line="5" column="25" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
+=======
+            <state relative-caret-position="180">
+              <caret line="10" column="41" selection-start-line="10" selection-start-column="41" selection-end-line="10" selection-end-column="41" />
+>>>>>>> 570d93299fc9fba05bd80d43a9fc274053246a7f
               <folding>
                 <element signature="e#43#71#0#PHP" expanded="true" />
               </folding>
+>>>>>>> 039ce6a13540553721f708fe3a3cb87c0ea154fe
             </state>
           </provider>
         </entry>
@@ -409,13 +423,29 @@
       <option name="presentableId" value="Default" />
       <updated>1551614370245</updated>
       <workItem from="1551614373609" duration="5899000" />
+<<<<<<< HEAD
+      <workItem from="1551689456871" duration="15699000" />
+=======
       <workItem from="1551689456871" duration="15631000" />
+<<<<<<< HEAD
       <workItem from="1551724701284" duration="5663000" />
+=======
+      <workItem from="1551724701284" duration="5618000" />
+>>>>>>> 039ce6a13540553721f708fe3a3cb87c0ea154fe
+>>>>>>> 570d93299fc9fba05bd80d43a9fc274053246a7f
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="27193000" />
+=======
+<<<<<<< HEAD
+    <option name="totallyTimeSpent" value="21598000" />
+=======
+    <option name="totallyTimeSpent" value="27148000" />
+>>>>>>> 039ce6a13540553721f708fe3a3cb87c0ea154fe
+>>>>>>> 570d93299fc9fba05bd80d43a9fc274053246a7f
   </component>
   <component name="ToolWindowManager">
     <frame x="-4" y="-4" width="1928" height="1060" extended-state="6" />
@@ -425,10 +455,16 @@
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" />
+<<<<<<< HEAD
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.23767799" />
+      <window_info anchor="right" id="Remote Host" order="3" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25239617" />
+=======
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.23767799" />
       <window_info anchor="right" id="Remote Host" order="3" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2550586" />
+>>>>>>> 039ce6a13540553721f708fe3a3cb87c0ea154fe
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -703,6 +739,24 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+=======
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Web/CategoryController.php">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="100">
+          <caret line="5" column="25" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
+=======
+        <state relative-caret-position="180">
+          <caret line="10" column="41" selection-start-line="10" selection-start-column="41" selection-end-line="10" selection-end-column="41" />
+          <folding>
+            <element signature="e#43#71#0#PHP" expanded="true" />
+          </folding>
+>>>>>>> 039ce6a13540553721f708fe3a3cb87c0ea154fe
+        </state>
+      </provider>
+    </entry>
+>>>>>>> 570d93299fc9fba05bd80d43a9fc274053246a7f
     <entry file="file://$PROJECT_DIR$/resources/views/web/home/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state>

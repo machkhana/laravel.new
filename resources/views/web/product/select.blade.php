@@ -1,12 +1,17 @@
-@extends('layouts.app')
+@extends('web.layouts.app')
 @section('content')
-    produqcia: {{$product->title_ge}}
+    <div class="nav">
+        @foreach($categories as $categori)
+            <a href="{{route('show.product',$categori->id)}}"><p>{{$categori->name_ge}}</p></a>
+        @endforeach
+    </div>
+    produqcia
     <br>
     <p></p>
     @foreach($productshow as $products)
-        <p>{{$products->title_ge}}</p>
-        <p>{{$products->description_ge}}</p>
-        <p>{{$products->text_ge}}</p>
-        <p>{{$products->price}}</p>
+        <p>jishi: {{$products->title_ge}}</p>
+        <p>mokle agcera: {{$products->description_ge}}</p>
+        <p>shinaarsi: {{$products->text_ge}}</p>
+        <p>fasi: {{$products->price}}</p>
     @endforeach
 @endsection

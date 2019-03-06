@@ -7,10 +7,6 @@ use App\Http\Controllers\Controller;
 
 class HomeController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
 
     /**
      * Show the application dashboard.
@@ -19,6 +15,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('admin.home');
+        return view('admin.dashboard.home');
     }
 }

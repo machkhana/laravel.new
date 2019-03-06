@@ -33,15 +33,16 @@ class ProductController extends Controller
             ->get();
         return view('web.product.show')
             ->with('productshow',$productshow)
-            ->with('categories',$this->categories->get());
+            ->with('categories',$this->categories->get())
+            ->with('cat',$cat);
     }
     public function select($cat,$id){
         $productshow = $this->products
             ->where('id',$id)
             ->get();
-        $cat=$this->categories->where('id',$cat)->get();
-        return view('web.product.show')
+        return view('web.product.select')
             ->with('productshow',$productshow)
-            ->with('categories',$this->categories->get());
+            ->with('categories',$this->categories->get())
+            ->with('cat',$cat);
     }
 }

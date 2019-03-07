@@ -7,6 +7,7 @@
                     <div class="card-header">Dashboard
                         <a href="{{route('admin.products.create')}}" class="btn btn-sm btn-success">add</a>
                     </div>
+                    <div class="row"></div>
                     <div class="card-body">
                         <div></div>
                         <div>
@@ -16,22 +17,22 @@
                                     <input class="form-control" name="title_ge" placeholder="title_ge">
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" name="title_ge" placeholder="title_en">
+                                    <input class="form-control" name="title_en" placeholder="title_en">
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" name="title_ge" placeholder="description_ge">
+                                    <input class="form-control" name="description_ge" placeholder="description_ge">
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" name="title_ge" placeholder="description_en">
+                                    <input class="form-control" name="description_en" placeholder="description_en">
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" name="title_ge" placeholder="text_ge">
+                                    <input class="form-control" name="text_ge" placeholder="text_ge">
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" name="title_ge" placeholder="text_en">
+                                    <input class="form-control" name="text_en" placeholder="text_en">
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" name="title_ge" placeholder="price">
+                                    <input class="form-control" name="price" placeholder="price">
                                 </div>
                                 <div class="form-group">
                                     <select class="form-control" name="cat_id">

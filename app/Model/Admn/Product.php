@@ -1,12 +1,12 @@
 <?php
 
 namespace App\Model\Admn;
-
 use Illuminate\Database\Eloquent\Model;
 
 
 class Product extends Model
 {
+    protected $table='products';
     protected $fillable=[
         'title_ge',
         'title_en',
@@ -14,9 +14,10 @@ class Product extends Model
         'description_en',
         'text_ge',
         'text_en',
-        'price'
+        'price',
+        'cat_id'
     ];
-    public function categori(){
-        return $this->hasMany(Categori::class);
+    public function categories(){
+        return $this->belongsToMany(Categori::class);
     }
 }

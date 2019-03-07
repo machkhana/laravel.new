@@ -4,8 +4,10 @@ namespace App\Http\Controllers\admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\DB;
 use App\Model\Admn\Product;
+use App\Model\Admn\Categori;
+use App\Http\Requests\ProductRequest;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
@@ -13,11 +15,9 @@ class ProductController extends Controller
 
     public function __construct()
     {
-        $this->products= new Product();
-        //$this->products=DB::table('products');
-        $this->categories=DB::table('categories');
+        $this->products = new Product();
+        $this->categories = new Categori();
     }
-
     /**
      * Display a listing of the resource.
      *
@@ -26,7 +26,7 @@ class ProductController extends Controller
     public function index()
     {
         return view('admin.product.index')
-            ->with('products',$this->products->get());
+            ->with('products',$this->products->all());
     }
 
     /**
@@ -37,7 +37,7 @@ class ProductController extends Controller
     public function create()
     {
         return view('admin.product.create')
-            ->with('categories',$this->categories->get());
+            ->with('categories',$this->categories->all());
     }
 
     /**
@@ -46,9 +46,15 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProductRequest $request)
     {
-        return redirect(route('admin.products.index'));
+        try {
+            $prodRequest=$request->toArray();
+            $this->products->create($prodRequest);
+            return redirect()->route('admin.products.index');
+        } catch (\Exception $e) {
+            return redirect(route('admin.products.create'));
+        }
     }
 
     /**

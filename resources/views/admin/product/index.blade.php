@@ -10,25 +10,29 @@
                     <div class="card-body">
                         <div></div>
                         <div>
-                            <table>
-                                <tr>
-                                    <td>dasaxeleba</td>
-                                    <td>mokle agcera</td>
-                                    <td>fasi</td>
-                                    <td>setting</td>
-                                </tr>
-                                <tr class="">
-                                    @foreach($products as $product)
-                                    <td>{{$product->title_ge}}</td>
-                                    <td>{{$product->description_ge}}</td>
-                                    <td>{{$product->price}}</td>
-                                    <td>
-                                        <a href="{{route('admin.products.edit',$product->id)}}">edit</a>
-                                        <button>delete</button>
-                                    </td>
-                                    @endforeach
-                                </tr>
-                            </table>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <tr>
+                                        <td>dasaxeleba</td>
+                                        <td>mokle agcera</td>
+                                        <td>fasi</td>
+                                        <td>setting</td>
+                                    </tr>
+
+                                        @foreach($products as $product)
+                                        <tr class="">
+                                            <td>{{$product->title_ge}}</td>
+                                            <td>{{$product->description_ge}}</td>
+                                            <td>{{$product->price}}</td>
+                                            <td>
+                                                <a href="{{route('admin.products.edit',$product->id)}}">edit</a>
+                                                <button>delete</button>
+                                            </td>
+
+                                        @endforeach
+                                    </tr>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>

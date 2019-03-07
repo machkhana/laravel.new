@@ -5,14 +5,17 @@ namespace App\Http\Controllers\admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use App\Model\Admn\Product;
 
 class ProductController extends Controller
 {
-    protected $products;
+    protected $products,$categories;
 
     public function __construct()
     {
-        $this->products=DB::table('products');
+        $this->products= new Product();
+        //$this->products=DB::table('products');
+        $this->categories=DB::table('categories');
     }
 
     /**
@@ -33,7 +36,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('admin.product.create');
+        return view('admin.product.create')
+            ->with('categories',$this->categories->get());
     }
 
     /**
@@ -44,7 +48,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return redirect(route('admin.products.index'));
     }
 
     /**

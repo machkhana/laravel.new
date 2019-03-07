@@ -4,7 +4,9 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Dashboard</div>
+                    <div class="card-header">Dashboard
+                    <a href="{{route('admin.products.create')}}" class="btn btn-sm btn-success">add</a>
+                    </div>
                     <div class="card-body">
                         <div></div>
                         <div>

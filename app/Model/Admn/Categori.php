@@ -14,6 +14,6 @@ class Categori extends Model
         'name_en'
     ];
     public function product(){
-        return $this->belongsToMany(Product::class);
+        return $this->belongsToMany(Product::class, 'products','id','cat_id');
     }
 }

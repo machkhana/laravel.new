@@ -23,27 +23,23 @@ class ProductRequest extends FormRequest
      */
     public function rules()
     {
-        /*switch ($this->method()) {
+        switch ($this->method()) {
             case 'DELETE': {
                 return [];
             }
             default: {
                 return [
-                    'title_ge' => 'required|string|unique:products,name_ge,'.$this->products,
-                    'name_en' => 'required|string|unique:products,name_en,'.$this->products,
-                    'name_ru' => 'required|string|unique:categories,name_ru,'.$this->products
+                    'title_ge'        => 'required:products,title_ge',
+                    'title_en'        => 'required:products,title_en',
+                    'description_ge'  => 'required:products,description_ge',
+                    'description_en'  => 'required:products,description_en',
+                    'text_ge'         => 'required:products,text_ge',
+                    'text_en'         => 'required:products:text_en',
+                    'price'           => 'required|int',
+                    'cat_id'          => 'required|int'
                 ];
             }
-        }*/
-        return [
-            'title_ge'        => 'required:products,title_ge',
-            'title_en'        => 'required:products,title_en',
-            'description_ge'  => 'required:products,description_ge',
-            'description_en'  => 'required:products,description_en',
-            'text_ge'         => 'required:products,text_ge',
-            'text_en'         => 'required:products:text_en',
-            'price'           => 'required|int',
-            'cat_id'          => 'required|int'
-        ];
+        }
+
     }
 }

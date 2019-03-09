@@ -25,8 +25,9 @@ class ProductController extends Controller
      */
     public function index()
     {
+        $selectproduct = $this->products->get();
         return view('admin.product.index')
-            ->with('products',$this->products->all());
+            ->with('products',$selectproduct);
     }
 
     /**
@@ -65,7 +66,7 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
@@ -76,7 +77,10 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        return $id;
+        $productshow = $this->products->find($id);
+        return view('admin.product.edit')
+            ->with('products',$productshow)
+            ->with('categories',$this->categories->all());
     }
 
     /**
@@ -86,9 +90,15 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ProductRequest $request, $id)
     {
-        //
+        try {
+            $prodRequest=$request->toArray();
+            $this->products->update($prodRequest,$id);
+            return redirect()->route('admin.products.index');
+        } catch (\Exception $e) {
+            return redirect(route('admin.products.create'));
+        }
     }
 
     /**

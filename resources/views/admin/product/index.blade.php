@@ -25,8 +25,8 @@
                                             <td>{{$product->description_ge}}</td>
                                             <td>{{$product->price}}</td>
                                             <td>
-                                                <a href="{{route('admin.products.edit',$product->id)}}">edit</a>
-                                                <button>delete</button>
+                                                <a class="btn btn-sm btn-primary" href="{{route('admin.products.edit',$product->id)}}">edit</a>
+                                                <a href="" class="btn btn-sm btn-danger">delete</a>
                                             </td>
 
                                         @endforeach

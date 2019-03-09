@@ -8,6 +8,7 @@ class Product extends Model
 {
     protected $table='products';
     protected $fillable=[
+        'id',
         'title_ge',
         'title_en',
         'description_ge',
@@ -18,6 +19,6 @@ class Product extends Model
         'cat_id'
     ];
     public function categories(){
-        return $this->belongsToMany(Categori::class);
+        return $this->belongsToMany(Categori::class, 'categories','cat_id','id');
     }
 }

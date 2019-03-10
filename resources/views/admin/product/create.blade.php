@@ -14,10 +14,15 @@
                             <form action="{{route('admin.products.store')}}" method="post">
                                 {{csrf_field()}}
                                 <div class="form-group">
-                                    <input class="form-control" name="title_ge" placeholder="title_ge">
+                                    <input class="form-control" value="{{old('title_ge')}}" name="title_ge" placeholder="title_ge">
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" name="title_en" placeholder="title_en">
+                                    <input class="form-control {{$error->has('title_en')? 'is-invalid':''}}" name="title_en" placeholder="title_en">
+                                    @if($error->has('title_en'))
+                                        <div class="invalid-feedback">
+                                            <strong>{{$error->first('title_en')}}</strong>
+                                        </div>
+                                    @endif
                                 </div>
                                 <div class="form-group">
                                     <input class="form-control" name="description_ge" placeholder="description_ge">

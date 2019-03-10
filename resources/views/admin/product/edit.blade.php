@@ -15,9 +15,19 @@
                                 {{csrf_field()}}
                                 <div class="form-group">
                                     <input class="form-control" name="title_ge" value="{{$products->title_ge}}">
+                                    @if($error->has('title_ge'))
+                                        <div class="invalid-feedback">
+                                            <strong>{{$error->first('title_ge')}}</strong>
+                                        </div>
+                                    @endif
                                 </div>
                                 <div class="form-group">
                                     <input class="form-control" name="title_en" value="{{$products->title_en}}" placeholder="title_en">
+                                    @if($error->has('title_en'))
+                                        <div class="invalid-feedback">
+                                            <strong>{{$error->first('title_en')}}</strong>
+                                        </div>
+                                    @endif
                                 </div>
                                 <div class="form-group">
                                     <input class="form-control" name="description_ge" value="{{$products->description_ge}}" placeholder="description_ge">

@@ -8,7 +8,7 @@ use App\Model\Admn\Product;
 use App\Model\Admn\Categori;
 use App\Http\Requests\ProductRequest;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\DB;
 class ProductController extends Controller
 {
     protected $products,$categories;
@@ -75,11 +75,11 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(int $id)
     {
-        $productshow = $this->products->find($id);
+        $products = $this->products->find($id);
         return view('admin.product.edit')
-            ->with('products',$productshow)
+            ->with('products',$products)
             ->with('categories',$this->categories->all());
     }
 
@@ -90,11 +90,13 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(ProductRequest $request, $id)
+    public function update(ProductRequest $request, int $id)
     {
+        /*$item = $this->products->findOneOrFail($id);
+        $this->products->setModel($item);*/
         try {
             $prodRequest=$request->toArray();
-            $this->products->update($prodRequest,$id);
+            $this->products->find($id)->update($prodRequest);
             return redirect()->route('admin.products.index');
         } catch (\Exception $e) {
             return redirect(route('admin.products.create'));

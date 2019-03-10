@@ -11,7 +11,7 @@
                     <div class="card-body">
                         <div></div>
                         <div>
-                            <form action="{{route('admin.products.update',$products->id)}}" method="post">
+                            <form action="{{route('admin.products.update',$products)}}" method="post">
                                 {{csrf_field()}}
                                 <div class="form-group">
                                     <input class="form-control" name="title_ge" value="{{$products->title_ge}}">
@@ -36,7 +36,7 @@
                                 </div>
                                 <div class="form-group">
                                     <select class="form-control" name="cat_id">
-                                        <option value="0" selected disabled>{{$products->categories->name_ge}}</option>
+                                        <option value="0" selected disabled>1212</option>
                                         @foreach($categories as $categori)
                                             <option value="{{$categori->id}}">{{$categori->name_ge}}</option>
                                         @endforeach

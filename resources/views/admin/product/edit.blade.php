@@ -9,25 +9,34 @@
                     </div>
                     <div class="row"></div>
                     <div class="card-body">
-                        <div></div>
                         <div>
-                            <form action="{{route('admin.products.update',$products)}}" method="post">
+                            @if(count($errors) > 0)
+                                <ul>
+                                    @foreach($errors->all() as $error)
+                                        <li>{{$error}}</li>
+                                    @endforeach
+                                </ul>
+                            @endif
+                        </div>
+                        <div>
+                            <form action="{{route('admin.products.update',$products->id)}}" method="post">
                                 {{csrf_field()}}
+                                {{method_field('PUT')}}
                                 <div class="form-group">
                                     <input class="form-control" name="title_ge" value="{{$products->title_ge}}">
-                                    @if($error->has('title_ge'))
+                                    {{--@if($error->has('title_ge'))
                                         <div class="invalid-feedback">
                                             <strong>{{$error->first('title_ge')}}</strong>
                                         </div>
-                                    @endif
+                                    @endif--}}
                                 </div>
                                 <div class="form-group">
                                     <input class="form-control" name="title_en" value="{{$products->title_en}}" placeholder="title_en">
-                                    @if($error->has('title_en'))
+                                    {{--@if($error->has('title_en'))
                                         <div class="invalid-feedback">
                                             <strong>{{$error->first('title_en')}}</strong>
                                         </div>
-                                    @endif
+                                    @endif--}}
                                 </div>
                                 <div class="form-group">
                                     <input class="form-control" name="description_ge" value="{{$products->description_ge}}" placeholder="description_ge">

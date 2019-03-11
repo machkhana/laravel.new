@@ -15,7 +15,7 @@ class ProductController extends Controller
 
     public function __construct()
     {
-        $this->products = new Product();
+        $this->products = Product::all();
         $this->categories = new Categori();
     }
     /**
@@ -25,7 +25,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $selectproduct = $this->products->get();
+        $selectproduct = $this->products->all();
         return view('admin.product.index')
             ->with('products',$selectproduct);
     }
@@ -77,7 +77,7 @@ class ProductController extends Controller
      */
     public function edit(int $id)
     {
-        $products = $this->products->find($id);
+        $products = $this->products->where('id',$id)->first();
         return view('admin.product.edit')
             ->with('products',$products)
             ->with('categories',$this->categories->all());
@@ -92,8 +92,8 @@ class ProductController extends Controller
      */
     public function update(ProductRequest $request, int $id)
     {
-        /*$item = $this->products->findOneOrFail($id);
-        $this->products->setModel($item);*/
+        $item = $this->products->find($id);
+        if(empty($item)){ }
         try {
             $prodRequest=$request->toArray();
             $this->products->find($id)->update($prodRequest);

@@ -9,20 +9,29 @@
                     </div>
                     <div class="row"></div>
                     <div class="card-body">
-                        <div></div>
+                        <div>
+                            @if(count($errors) > 0)
+                                <ul>
+                                    @foreach($errors->all() as $error)
+                                        <li>{{$error}}</li>
+                                    @endforeach
+                                </ul>
+                            @endif
+                        </div>
                         <div>
                             <form action="{{route('admin.products.store')}}" method="post">
                                 {{csrf_field()}}
                                 <div class="form-group">
-                                    <input class="form-control" value="{{old('title_ge')}}" name="title_ge" placeholder="title_ge">
+                                    <input class="form-control {{$errors->first('title_ge')?'is-invalid':''}}" value="{{old('title_ge')}}" name="title_ge" placeholder="title_ge">
+                                    {{--@if($errors->has('title_ge'))
+                                        <div class="invalid-feedback">
+                                            <strong>{{$errors->first('title_ge')}}</strong>
+                                        </div>
+                                    @endif--}}
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control {{$error->has('title_en')? 'is-invalid':''}}" name="title_en" placeholder="title_en">
-                                    @if($error->has('title_en'))
-                                        <div class="invalid-feedback">
-                                            <strong>{{$error->first('title_en')}}</strong>
-                                        </div>
-                                    @endif
+                                    <input class="form-control" name="title_en" placeholder="title_en">
+
                                 </div>
                                 <div class="form-group">
                                     <input class="form-control" name="description_ge" placeholder="description_ge">

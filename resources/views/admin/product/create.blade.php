@@ -21,32 +21,27 @@
                         <div>
                             <form action="{{route('admin.products.store')}}" method="post">
                                 {{csrf_field()}}
+                                {{method_field('POST')}}
                                 <div class="form-group">
                                     <input class="form-control {{$errors->first('title_ge')?'is-invalid':''}}" value="{{old('title_ge')}}" name="title_ge" placeholder="title_ge">
-                                    {{--@if($errors->has('title_ge'))
-                                        <div class="invalid-feedback">
-                                            <strong>{{$errors->first('title_ge')}}</strong>
-                                        </div>
-                                    @endif--}}
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" name="title_en" placeholder="title_en">
-
+                                    <input class="form-control" name="title_en" placeholder="title_en" value="{{old('title_en')}}">
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" name="description_ge" placeholder="description_ge">
+                                    <input class="form-control" name="description_ge" placeholder="description_ge" value="{{old('description_ge')}}">
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" name="description_en" placeholder="description_en">
+                                    <input class="form-control" name="description_en" placeholder="description_en" value="{{old('description_en')}}">
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" name="text_ge" placeholder="text_ge">
+                                    <input class="form-control" name="text_ge" placeholder="text_ge" value="{{old('text_ge')}}">
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" name="text_en" placeholder="text_en">
+                                    <input class="form-control" name="text_en" placeholder="text_en" value="{{old('text_en')}}">
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" name="price" placeholder="price">
+                                    <input class="form-control" name="price" placeholder="price" value="{{old('price')}}">
                                 </div>
                                 <div class="form-group">
                                     <select class="form-control" name="cat_id">

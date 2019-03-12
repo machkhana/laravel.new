@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\admin;
 
+use function GuzzleHttp\Promise\all;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\Admn\Product;
@@ -15,7 +16,7 @@ class ProductController extends Controller
 
     public function __construct()
     {
-        $this->products = Product::all();
+        $this->products = new Product();
         $this->categories = new Categori();
     }
     /**
@@ -25,11 +26,10 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $selectproduct = $this->products->all();
+        $selectproduct = $this->products->get();
         return view('admin.product.index')
             ->with('products',$selectproduct);
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -40,7 +40,6 @@ class ProductController extends Controller
         return view('admin.product.create')
             ->with('categories',$this->categories->all());
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -57,7 +56,6 @@ class ProductController extends Controller
             return redirect(route('admin.products.create'));
         }
     }
-
     /**
      * Display the specified resource.
      *
@@ -68,7 +66,6 @@ class ProductController extends Controller
     {
 
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -77,12 +74,14 @@ class ProductController extends Controller
      */
     public function edit(int $id)
     {
+        $categories = $this->categories->all();
         $products = $this->products->where('id',$id)->first();
+        $selected_cat = $this->categories->find($products->cat_id);
         return view('admin.product.edit')
             ->with('products',$products)
-            ->with('categories',$this->categories->all());
+            ->with('selected_cat',$selected_cat)
+            ->with('categories',$categories);
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -102,15 +101,19 @@ class ProductController extends Controller
             return redirect(route('admin.products.create'));
         }
     }
-
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(int $id)
     {
-        //
+        try{
+            $this->products->find($id)->delete();
+            return redirect()->route('admin.products.index');
+        }catch (\Exception $e){
+            return redirect(route('admin.products.index'))->with('error');
+        }
     }
 }

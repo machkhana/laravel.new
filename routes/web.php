@@ -31,3 +31,7 @@ Route::group(['middleware' => ['web', 'auth'], 'prefix' => 'admin', 'as' => 'adm
     Route::resource('/categories', 'Admin\CategoryController');
     Route::resource('/products', 'Admin\ProductController');
 });
+
+Route::group(['middleware' => ['role:admin']], function () {
+    //
+});

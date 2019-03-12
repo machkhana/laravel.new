@@ -55,9 +55,16 @@
                                 </div>
                                 <div class="form-group">
                                     <select class="form-control" name="cat_id">
-                                        <option value="0" selected disabled>1212</option>
+                                        <option value="{{$products->cat_id}}" selected>{{$selected_cat->name_ge}}</option>
+                                        {{--@foreach($categories as $categori)
+                                            @if(count($products->categories->where('id',$categori->id)) > 0)
+                                                <option value="{{$categori->id}}" selected>{{$categori->name_ge}}</option>
+                                            @else
+                                                <option value="{{$categori->id}}">{{$categori->name_ge}}</option>
+                                            @endif
+                                        @endforeach--}}
                                         @foreach($categories as $categori)
-                                            <option value="{{$categori->id}}">{{$categori->name_ge}}</option>
+                                                <option value="{{$categori->id}}">{{$categori->name_ge}}</option>
                                         @endforeach
                                     </select>
                                 </div>

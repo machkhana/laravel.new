@@ -9,11 +9,10 @@ class Categori extends Model
     protected $table = 'categories';
 
     protected $fillable=[
-        'id',
         'name_ge',
         'name_en'
     ];
     public function product(){
-        return $this->belongsToMany(Product::class, 'products','id','cat_id');
+        return $this->belongsToMany(Product::class, 'products','cat_id','id');
     }
 }

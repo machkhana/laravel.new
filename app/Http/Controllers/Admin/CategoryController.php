@@ -1,12 +1,20 @@
 <?php
 
-namespace App\Http\Controllers\admin;
+namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\CategoryRequest;
 use App\Http\Controllers\Controller;
+use App\Model\Admn\Categori;
 
-class CategoriController extends Controller
+class CategoryController extends Controller
 {
+    protected $categories;
+
+    public function __construct()
+    {
+        $this->categories = new Categori();
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +22,8 @@ class CategoriController extends Controller
      */
     public function index()
     {
-        //
+        $categories = $this->categories->all();
+        return view('admin.categori.index', compact('categories'));
     }
 
     /**
@@ -24,7 +33,7 @@ class CategoriController extends Controller
      */
     public function create()
     {
-        //
+        return view ('admin.categori.create');
     }
 
     /**
@@ -33,9 +42,15 @@ class CategoriController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CategoryRequest $request)
     {
-        //
+        try{
+            $category = $request->toArray();
+            $this->categories->create($category);
+            return redirect('admin.categori.index');
+        }catch (\Exception $e){
+            return redirect('admin.categori.create');
+        }
     }
 
     /**
@@ -57,7 +72,8 @@ class CategoriController extends Controller
      */
     public function edit($id)
     {
-        //
+        $item = $this->categories->where('id',$id)->first();
+        return view('admin.categori.edit', compact('item'));
     }
 
     /**
@@ -67,9 +83,17 @@ class CategoriController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CategoryRequest $request, int $id)
     {
-        //
+        $CatRequest = $request->toArray();
+        dd($request);
+        /*try{
+
+            $this->categories->find($id)->update($CatRequest);
+            return redirect(route('admin.categori.index'));
+        }catch (\Exception $e){
+            return redirect(route('admin.categori.edit'));
+        }*/
     }
 
     /**

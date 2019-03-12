@@ -10,7 +10,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
                 <ul>
-                    <li>categoria</li>
+                    <a href="{{route('admin.categories.index')}}"><li>categoria</li></a>
                     <a href="{{route('admin.products.index')}}"><li>produqcia</li></a>
                 </ul>
                 <!-- Right Side Of Navbar -->

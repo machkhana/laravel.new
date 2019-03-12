@@ -32,6 +32,6 @@ Route::group(['middleware' => ['web', 'auth'], 'prefix' => 'admin', 'as' => 'adm
     Route::resource('/products', 'Admin\ProductController');
 });
 
-Route::group(['middleware' => ['role:admin']], function () {
+/*Route::group(['middleware' => ['role:admin']], function () {
     //
-});
+});*/
